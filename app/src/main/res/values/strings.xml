@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">MyBills</string>
+    <string name="gas_consumed">Gas Consumed</string>
+</resources>

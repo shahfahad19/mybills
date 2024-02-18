@@ -1,0 +1,41 @@
+<!-- res/layout/custom_progress_dialog.xml -->
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_gravity="center"
+    android:padding="16dp"
+    app:cardCornerRadius="10dp">
+    <LinearLayout android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="16dp">
+
+         <!-- Text Message (optional) -->
+        <TextView
+            android:id="@+id/textViewMessage"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:fontFamily="@font/montserrat_semibold"
+            android:paddingVertical="16sp"
+            android:paddingHorizontal="30dp"
+            android:text="Loading..."
+            android:textColor="@color/primary"
+            android:layout_marginBottom="20dp"
+            android:textAlignment="center"
+            android:textSize="16dp" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/okBtn"
+            android:layout_gravity="center_horizontal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/button_bg"
+            android:fontFamily="@font/montserrat_medium"
+            android:text="OK"
+            android:textColor="@color/white" />
+
+
+    </LinearLayout>
+</androidx.cardview.widget.CardView>
