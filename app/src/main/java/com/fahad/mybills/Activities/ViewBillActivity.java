@@ -1,5 +1,6 @@
 package com.fahad.mybills.Activities;
 
+import android.content.Context;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.Canvas;
@@ -7,6 +8,10 @@ import android.graphics.pdf.PdfDocument;
 import android.os.Bundle;
 import android.os.Environment;
 import android.os.Handler;
+import android.print.PrintAttributes;
+import android.print.PrintDocumentAdapter;
+import android.print.PrintManager;
+import android.view.View;
 import android.view.ViewGroup;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
@@ -51,6 +56,11 @@ public class ViewBillActivity extends AppCompatActivity {
                 @Override
                 public void onPdfClick() {
                     saveAsPDF();
+                }
+
+                @Override
+                public void onPrintClick() {
+                    printWebView();
                 }
 
                 @Override
@@ -145,20 +155,28 @@ public class ViewBillActivity extends AppCompatActivity {
         int contentWidth = webViewForDL.getWidth();
         int contentHeight = webViewForDL.getHeight();
 
-        float scale = webViewForDL.getResources().getDisplayMetrics().density;
+//        float scale = webViewForDL.getResources().getDisplayMetrics().density;
+        float scale = 1;
 
         Bitmap bitmap = Bitmap.createBitmap((int) (contentWidth * scale), (int) (contentHeight * scale), Bitmap.Config.ARGB_8888);
 
         Canvas canvas = new Canvas(bitmap);
 
-        canvas.scale(scale, scale);
+//        canvas.scale(scale, scale);
 
         webViewForDL.draw(canvas);
 
         return bitmap;
     }
 
-
+    private void printWebView() {
+        PrintManager printManager = (PrintManager) getSystemService(Context.PRINT_SERVICE);
+        String jobName = bill.getCompany() + "_" + bill.getMonth()+ "_" + bill.getRef();
+        PrintDocumentAdapter printAdapter = webViewForDL.createPrintDocumentAdapter(jobName);
+        PrintAttributes.Builder builder = new PrintAttributes.Builder();
+        builder.setMediaSize(PrintAttributes.MediaSize.ISO_A3);
+        printManager.print(jobName, printAdapter, builder.build());
+    }
 
 
     @Override

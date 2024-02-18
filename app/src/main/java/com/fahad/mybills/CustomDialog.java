@@ -72,6 +72,7 @@ public class CustomDialog extends Dialog {
 
         Button imageBtn = dialog.findViewById(R.id.imageBtn);
         Button pdfBtn = dialog.findViewById(R.id.pdfBtn);
+        Button printBtn = dialog.findViewById(R.id.printPtn);
         Button cancelBtn = dialog.findViewById(R.id.cancelBtn);
 
         dialog.show();
@@ -87,6 +88,13 @@ public class CustomDialog extends Dialog {
             dialog.dismiss();
             if (listener != null) {
                 listener.onPdfClick();
+            }
+        });
+
+        printBtn.setOnClickListener(v -> {
+            dialog.dismiss();
+            if (listener != null) {
+                listener.onPrintClick();
             }
         });
 
@@ -129,5 +137,7 @@ public class CustomDialog extends Dialog {
         void onPdfClick();
 
         void onCancel();
+
+        void onPrintClick();
     }
 }

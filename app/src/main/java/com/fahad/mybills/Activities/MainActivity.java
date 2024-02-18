@@ -1,6 +1,8 @@
 package com.fahad.mybills.Activities;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.view.GravityCompat;
+import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Context;
@@ -12,6 +14,7 @@ import android.net.NetworkCapabilities;
 import android.net.NetworkInfo;
 import android.os.Build;
 import android.os.Bundle;
+import android.view.MotionEvent;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -44,6 +47,7 @@ public class MainActivity extends AppCompatActivity implements BillAdapter.ItemC
     List<Bill> bills;
     LinearLayout errorLayout;
     ApiService apiService;
+    DrawerLayout drawerLayout;
 
     int checkedBills = 0, updatedBills =0, failedBills = 0;
 
@@ -57,6 +61,7 @@ public class MainActivity extends AppCompatActivity implements BillAdapter.ItemC
 
         searchBtn = findViewById(R.id.searchBtn);
         errorLayout = findViewById(R.id.errorLayout);
+        drawerLayout = findViewById(R.id.drawer_layout);
 
         ref = findViewById(R.id.ref);
 
@@ -79,7 +84,6 @@ public class MainActivity extends AppCompatActivity implements BillAdapter.ItemC
         else {
 
            if (isInternetAvailable()) {
-               Toast.makeText(this, "Updating bills", Toast.LENGTH_SHORT).show();
                for (Bill bill : bills) {
                    refreshBillData(bill.getRef());
                }
@@ -211,7 +215,7 @@ public class MainActivity extends AppCompatActivity implements BillAdapter.ItemC
 
             if (checkedBills != failedBills) {
                 if (updatedBills == 0) {
-                    Toast.makeText(this, "All bills are up to date", Toast.LENGTH_SHORT).show();
+//                    Toast.makeText(this, "All bills are up to date", Toast.LENGTH_SHORT).show();
                 }
                 else {
                     if (updatedBills == 1) {
@@ -223,7 +227,7 @@ public class MainActivity extends AppCompatActivity implements BillAdapter.ItemC
                 }
             }
             else {
-                Toast.makeText(this, "Failed to check " + failedBills + " bills", Toast.LENGTH_SHORT).show();
+//                Toast.makeText(this, "Failed to check " + failedBills + " bills", Toast.LENGTH_SHORT).show();
             }
 
         }
@@ -243,4 +247,13 @@ public class MainActivity extends AppCompatActivity implements BillAdapter.ItemC
         }
         return false;
     }
+
+    public void openSidebar(View view) {
+        DrawerLayout drawerLayout = findViewById(R.id.drawer_layout);
+        drawerLayout.openDrawer(GravityCompat.START);
+    }
+
+
+
+
 }

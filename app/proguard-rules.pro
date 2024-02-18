@@ -19,3 +19,31 @@
 # If you keep the line number information, uncomment this to
 # hide the original source file name.
 #-renamesourcefileattribute SourceFile
+
+# Obfuscate all class names
+-keepnames class * {
+    <methods>;
+}
+
+# Obfuscate all method names
+-keepclassmembers class * {
+    <fields>;
+    <methods>;
+}
+
+# Obfuscate all resource names (e.g., layout files, drawable files)
+-renamesourcefileattribute SourceFile
+-keepattributes SourceFile,LineNumberTable
+
+# Remove debug information
+-optimizations !debug
+
+# Keep entry points (e.g., activities, services) and their methods
+-keep class com.fahad.mybills.** {
+    public *;
+}
+
+-dontwarn retrofit2.**
+-keep class retrofit2.** { *; }
+-keepattributes Signature
+-keepattributes Exceptions

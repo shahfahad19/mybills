@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "569896695556",
+    "project_id": "mybills-4fed3",
+    "storage_bucket": "mybills-4fed3.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:569896695556:android:14375c10bd09b734f28251",
+        "android_client_info": {
+          "package_name": "com.fahad.mybills"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBJX8oyEEgaESkK6hzkKZlU1_pYPWwqX2s"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

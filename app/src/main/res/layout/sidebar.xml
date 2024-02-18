@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@android:color/white">
+
+    <!-- Logo -->
+    <ImageView
+        android:layout_width="100sp"
+        android:layout_height="100sp"
+        android:src="@drawable/logo"
+        android:scaleType="centerCrop"
+        android:padding="16dp"/>
+
+    <!-- Your sidebar items -->
+    <TextView
+        android:id="@+id/item1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Item 1"
+        android:padding="16dp"
+        android:textColor="@android:color/black"/>
+
+    <TextView
+        android:id="@+id/item2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Item 2"
+        android:padding="16dp"
+        android:textColor="@android:color/black"/>
+
+    <!-- Add more items as needed -->
+
+</LinearLayout>
